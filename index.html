@@ -189,15 +189,15 @@
   <p class="lede">You're surrounded by connected things — coffee machine, washer, fridge, lights, sensors. Each one carries an ARC identity and joins <b style="color:var(--ink)">your</b> network through an ARC router at home. Then you add apps and agents — weather, news, energy prices — and the whole thing becomes one ecosystem of <b style="color:var(--ink)">devices, apps and agents</b> that mostly runs locally. That local-first design is what makes it private and safe. AI-augmented life that lives in your house, not on someone's server.</p>
 
   <div class="magic">
-    <p class="q">Your weather agent messages your coffee machine directly: <em>"storm tomorrow — he wakes ~40 min early on storm days. Start brewing at 6:20."</em></p>
-    <p class="meta">no vendor cloud · no hand-wired automation · discovered &amp; addressed by ARC identity · you granted the agent a scoped permission to the kitchen</p>
+    <p class="q">A traffic agent watching your commute messages the home directly: <em>"heavy traffic on your route — waking you 30 min early. Blinds opening, coffee brewing."</em></p>
+    <p class="meta">no vendor cloud · no hand-wired automation · everything runs in your home · you stay in control of what each agent can touch</p>
   </div>
 </section>
 
 <!-- 2. THE HOME NETWORK -->
 <section class="wrap">
   <div class="section-head"><span class="num">02</span><h2>Your home as a local network</h2></div>
-  <p class="lede">The router is the home's trust root and naming authority for <span class="mono" style="color:var(--root)">*.taulant.arc</span>. Devices and local agents are participants inside the boundary. External agents that need the internet are addressed <i>into</i> the home through scoped, revocable permissions — they never sit in the middle.</p>
+  <p class="lede">The router is the heart of the home — it gives every device and agent its own private address under <span class="mono" style="color:var(--root)">taulant.arc</span>. Your devices and agents live inside the home. Agents that need the internet reach in only through permissions you grant and can revoke — they never sit in the middle.</p>
 
   <div class="panel">
   <figure>
@@ -288,72 +288,72 @@
     </g>
   </svg>
   </figure>
-  <figcaption>// color = participant type · addresses are identities · the boundary is the LAN</figcaption>
+  <figcaption>// color = type of participant · every address is an identity · the boundary is your home</figcaption>
   </div>
 </section>
 
 <!-- 3. ARCHITECTURE -->
 <section class="wrap">
-  <div class="section-head"><span class="num">03</span><h2>Why it works on ARC</h2></div>
-  <p class="lede">ARC pushes identity, discovery, trust and encrypted messaging down into the network layer — and sits on a BEAM substrate where one lightweight process maps to one participant.</p>
+  <div class="section-head"><span class="num">03</span><h2>Why ARC wins</h2></div>
+  <p class="lede">ARC builds identity, discovery, trust and encrypted messaging into the network itself. Every device and every agent is a private, addressable participant you own — not an account on someone else's cloud.</p>
 
   <div class="cards">
-    <div class="card root"><h3>One node, many processes</h3><p>The router runs a BEAM node. Each device and agent is a process. A 50-participant home is 50 processes — trivial. The actor model <i>is</i> the home model.</p></div>
-    <div class="card root"><h3>Crashes don't cascade</h3><p>Supervision trees restart a failed agent on its own. A misbehaving news agent never takes down the kitchen.</p></div>
-    <div class="card local"><h3>Offline-first by design</h3><p>The router is the local trust root and naming authority. Internet dies, the house keeps working — identity and messaging never left the LAN.</p></div>
-    <div class="card ext"><h3>Capability-scoped agents</h3><p>Identity-native means permissions are native: the weather agent may address the coffee machine, but not the front-door lock. Revoke the identity, the agent is gone.</p></div>
+    <div class="card root"><h3>Private by default</h3><p>Your data and your routines live in your home, not on a vendor's servers. Nothing about your life is sold, mined, or leaked to the cloud.</p></div>
+    <div class="card root"><h3>Reliable when it matters</h3><p>If one agent fails, the rest keep running — a misbehaving app never takes down the kitchen. The home is built to stay up.</p></div>
+    <div class="card local"><h3>Works without internet</h3><p>The home runs locally. The internet can go down and your house keeps working — lights, coffee, locks and routines never miss a beat.</p></div>
+    <div class="card ext"><h3>You're always in control</h3><p>You decide exactly what each agent can touch — a traffic agent may start the coffee but never open the front door. Revoke access in one tap and it's gone.</p></div>
   </div>
 
-  <h3 style="margin-top:40px;font-size:1.15rem">The stack — and where Matter sits</h3>
+  <h3 style="margin-top:40px;font-size:1.15rem">How ARC fits with your devices</h3>
   <div class="panel">
   <figure>
-  <svg viewBox="0 0 880 360" role="img" aria-label="Layered architecture: participants on top, then the four ARC layers, then southbound device protocols like Matter, then physical devices.">
+  <svg viewBox="0 0 880 360" role="img" aria-label="Layered view: people, agents and devices on top; the ARC layer providing identity, private messaging, connection and storage; then today's smart-home standards; then the physical devices.">
     <!-- participants -->
     <rect x="40" y="14" width="800" height="48" rx="10" fill="var(--panel2)" stroke="var(--line)"/>
-    <text class="nt" x="60" y="43" fill="var(--human)">Participants</text>
-    <text class="nl-sub" x="820" y="43" text-anchor="end">agents · humans · devices — all identity-addressed</text>
+    <text class="nt" x="60" y="43" fill="var(--human)">People · agents · devices</text>
+    <text class="nl-sub" x="820" y="43" text-anchor="end">everyone gets their own private address</text>
 
     <!-- ARC four layers -->
     <rect x="40" y="74" width="800" height="172" rx="12" fill="rgba(94,234,212,.05)" stroke="var(--root)" stroke-opacity="0.5"/>
-    <text class="bl" x="58" y="98" style="fill:var(--root)">ARC LAYER</text>
+    <text class="bl" x="58" y="98" style="fill:var(--root)">THE ARC LAYER</text>
 
     <rect x="60" y="108" width="380" height="56" rx="9" fill="var(--panel)" stroke="var(--line)"/>
-    <text class="nt" x="80" y="132">Control plane</text>
-    <text class="nl-sub" x="80" y="150">identity · names · trust</text>
+    <text class="nt" x="80" y="132">Identity &amp; trust</text>
+    <text class="nl-sub" x="80" y="150">who every device and agent is</text>
 
     <rect x="460" y="108" width="360" height="56" rx="9" fill="var(--panel)" stroke="var(--line)"/>
-    <text class="nt" x="480" y="132">Data plane</text>
-    <text class="nl-sub" x="480" y="150">encrypted participant-to-participant</text>
+    <text class="nt" x="480" y="132">Private messaging</text>
+    <text class="nl-sub" x="480" y="150">encrypted, device to device</text>
 
     <rect x="60" y="176" width="380" height="56" rx="9" fill="var(--panel)" stroke="var(--line)"/>
-    <text class="nt" x="80" y="200">Network</text>
-    <text class="nl-sub" x="80" y="218">peer-to-peer connectivity</text>
+    <text class="nt" x="80" y="200">Connection</text>
+    <text class="nl-sub" x="80" y="218">devices find each other directly</text>
 
     <rect x="460" y="176" width="360" height="56" rx="9" fill="var(--panel)" stroke="var(--line)"/>
     <text class="nt" x="480" y="200">Storage</text>
-    <text class="nl-sub" x="480" y="218">encrypted persistence</text>
+    <text class="nl-sub" x="480" y="218">encrypted, kept in your home</text>
 
     <!-- southbound -->
     <rect x="40" y="258" width="800" height="44" rx="10" fill="var(--panel2)" stroke="var(--line)"/>
-    <text class="nt" x="60" y="285" fill="var(--device)">Matter / Thread / Zigbee / MQTT</text>
-    <text class="nl-sub" x="820" y="285" text-anchor="end">southbound — consume it, don't fight it</text>
+    <text class="nt" x="60" y="285" fill="var(--device)">Today's smart-home standards</text>
+    <text class="nl-sub" x="820" y="285" text-anchor="end">ARC works with them, not against them</text>
 
     <!-- devices -->
     <rect x="40" y="314" width="800" height="34" rx="9" fill="none" stroke="var(--line-soft)"/>
     <text class="nl-sub" x="60" y="335">physical devices</text>
   </svg>
   </figure>
-  <figcaption>// ARC's edge over Matter: agents as first-class · user-owned identity · capability permissions · neutrality</figcaption>
+  <figcaption>// ARC's edge: agents are first-class · you own your identity · you control permissions · no vendor lock-in</figcaption>
   </div>
 
-  <h3 style="margin-top:40px;font-size:1.15rem">Capability permissions, made concrete</h3>
+  <h3 style="margin-top:40px;font-size:1.15rem">You decide what each agent can touch</h3>
   <div class="panel">
   <figure>
-  <svg viewBox="0 0 880 240" role="img" aria-label="The weather agent is allowed to address the coffee machine and blinds, but denied access to the front-door lock.">
+  <svg viewBox="0 0 880 240" role="img" aria-label="The traffic agent is allowed to start the coffee machine and open the blinds, but denied access to the front-door lock.">
     <!-- agent -->
     <circle cx="120" cy="120" r="20" fill="var(--ext)"/>
-    <text class="nt" x="120" y="78" text-anchor="middle">weather.agent</text>
-    <text class="nl-sub" x="120" y="170" text-anchor="middle">scoped grant</text>
+    <text class="nt" x="120" y="78" text-anchor="middle">traffic agent</text>
+    <text class="nl-sub" x="120" y="170" text-anchor="middle">limited access</text>
 
     <!-- allowed: coffee -->
     <path class="edge" style="stroke:var(--ok)" d="M140,112 Q330,60 520,80"/>
@@ -375,91 +375,46 @@
     <text x="330" y="206" class="nl-sub" style="fill:var(--no)" text-anchor="middle">blocked at the identity layer</text>
   </svg>
   </figure>
-  <figcaption>// Matter can't express "this third-party agent may talk to these devices and only these." ARC can.</figcaption>
+  <figcaption>// today's smart-home systems can't say "this agent may talk to these devices and only these." ARC can.</figcaption>
   </div>
 </section>
 
-<!-- 4. EXAMPLES -->
+<!-- 4. EXAMPLE -->
 <section class="wrap">
-  <div class="section-head"><span class="num">04</span><h2>Examples</h2></div>
-  <p class="lede">Three hero flows. Pick one as the lighthouse demo — built 100% native and offline.</p>
+  <div class="section-head"><span class="num">04</span><h2>One morning, made smarter</h2></div>
+  <p class="lede">A single agent watches the traffic on your commute. The morning it spots a jam, it quietly reshapes your whole wake-up — earlier alarm, blinds up, coffee ready — so you still walk out the door on time.</p>
 
-  <!-- morning -->
   <div class="panel">
-    <h3 style="font-size:1.1rem;margin-bottom:4px">Morning routine</h3>
-    <p class="mono" style="font-size:.8rem;color:var(--ink-dim);margin:0 0 6px">06:20 · fully local</p>
+    <h3 style="font-size:1.1rem;margin-bottom:4px">Traffic-aware wake-up</h3>
+    <p class="mono" style="font-size:.8rem;color:var(--ink-dim);margin:0 0 6px">heavy traffic detected · wake moved 30 min earlier</p>
     <figure class="flow">
-    <svg viewBox="0 0 880 150" role="img" aria-label="The sleep agent triggers the router, which starts the coffee machine, opens the blinds, and runs the news briefing.">
-      <circle cx="80" cy="75" r="17" fill="var(--local)"/>
-      <text class="nl" x="80" y="40" text-anchor="middle">sleep</text>
-      <text class="nl-sub" x="80" y="112" text-anchor="middle">sleep.taulant.arc</text>
+    <svg viewBox="0 0 880 200" role="img" aria-label="A traffic agent checks Google Maps and tells the router about a jam; the router wakes the alarm clock earlier, opens the blinds, and starts the coffee machine.">
+      <!-- traffic agent -->
+      <circle cx="80" cy="100" r="18" fill="var(--ext)"/>
+      <text class="nl" x="80" y="62" text-anchor="middle">traffic agent</text>
+      <text class="nl-sub" x="80" y="140" text-anchor="middle">watching Google Maps</text>
 
-      <line class="edge flowdash" x1="100" y1="75" x2="300" y2="75"/>
-      <circle cx="330" cy="75" r="20" fill="var(--root)"/>
-      <text class="nt" x="330" y="40" text-anchor="middle">router</text>
+      <!-- agent -> router -->
+      <path class="edge-ext flowdash" d="M100,100 H300" style="opacity:1"/>
 
-      <line class="edge" x1="352" y1="66" x2="560" y2="40"/>
-      <line class="edge" x1="354" y1="75" x2="560" y2="75"/>
-      <line class="edge" x1="352" y1="84" x2="560" y2="112"/>
+      <!-- router -->
+      <circle cx="332" cy="100" r="22" fill="var(--root)"/>
+      <text class="nt" x="332" y="62" text-anchor="middle">your home</text>
 
-      <circle cx="590" cy="40" r="15" fill="var(--device)"/><text class="nl" x="614" y="44" text-anchor="start">coffee → brew</text>
-      <circle cx="590" cy="75" r="15" fill="var(--device)"/><text class="nl" x="614" y="79" text-anchor="start">blinds → open</text>
-      <circle cx="590" cy="112" r="15" fill="var(--local)"/><text class="nl" x="614" y="116" text-anchor="start">news → read aloud</text>
+      <!-- router -> devices -->
+      <line class="edge flowdash" x1="354" y1="88" x2="560" y2="50"/>
+      <line class="edge flowdash" x1="356" y1="100" x2="560" y2="100"/>
+      <line class="edge flowdash" x1="354" y1="112" x2="560" y2="150"/>
+
+      <circle cx="590" cy="50" r="15" fill="var(--device)"/><text class="nl" x="614" y="54" text-anchor="start">alarm clock → ring 30 min early</text>
+      <circle cx="590" cy="100" r="15" fill="var(--device)"/><text class="nl" x="614" y="104" text-anchor="start">blinds → open</text>
+      <circle cx="590" cy="150" r="15" fill="var(--device)"/><text class="nl" x="614" y="154" text-anchor="start">coffee machine → brew</text>
     </svg>
     </figure>
-    <span class="msg">sleep.taulant.arc → router: "wake cycle starting"</span>
+    <span class="msg">traffic agent → your home: "jam on the commute — wake him 30 min early, open the blinds, start the coffee"</span>
   </div>
 
-  <!-- energy -->
-  <div class="panel">
-    <h3 style="font-size:1.1rem;margin-bottom:4px">Energy-aware laundry <span style="color:var(--ink-dim);font-weight:400;font-size:.85rem">· a killer EU wedge</span></h3>
-    <p class="mono" style="font-size:.8rem;color:var(--ink-dim);margin:0 0 6px">runs the washer at the cheapest hour</p>
-    <figure class="flow">
-    <svg viewBox="0 0 880 150" role="img" aria-label="An external energy-price agent tells the router the cheapest hour, and the washer is scheduled to run then.">
-      <circle cx="80" cy="75" r="17" fill="var(--ext)"/>
-      <text class="nl" x="80" y="40" text-anchor="middle">energy price</text>
-      <text class="nl-sub" x="80" y="112" text-anchor="middle">energy.agent · scoped</text>
-
-      <path class="edge-ext flowdash" d="M100,75 H300" style="opacity:1"/>
-      <circle cx="330" cy="75" r="20" fill="var(--root)"/>
-      <text class="nt" x="330" y="40" text-anchor="middle">router</text>
-
-      <line class="edge flowdash" x1="352" y1="75" x2="560" y2="75"/>
-      <circle cx="590" cy="75" r="16" fill="var(--device)"/>
-      <text class="nl" x="616" y="71" text-anchor="start">washer</text>
-      <text class="nl-sub" x="616" y="87" text-anchor="start">scheduled 02:00 · cheapest spot price</text>
-    </svg>
-    </figure>
-    <span class="msg">energy.agent → washer.taulant.arc: "cheapest window 02:00–03:00 — run then"</span>
-  </div>
-
-  <!-- fridge -->
-  <div class="panel">
-    <h3 style="font-size:1.1rem;margin-bottom:4px">Fridge → grocery</h3>
-    <p class="mono" style="font-size:.8rem;color:var(--ink-dim);margin:0 0 6px">with a confirm-before-buy step</p>
-    <figure class="flow">
-    <svg viewBox="0 0 880 150" role="img" aria-label="The fridge inventory agent notices low milk, asks the grocery agent to draft an order, and waits for the person to confirm.">
-      <circle cx="80" cy="75" r="17" fill="var(--device)"/>
-      <text class="nl" x="80" y="40" text-anchor="middle">fridge</text>
-      <text class="nl-sub" x="80" y="112" text-anchor="middle">fridge.taulant.arc</text>
-
-      <line class="edge flowdash" x1="100" y1="75" x2="250" y2="75"/>
-      <circle cx="280" cy="75" r="16" fill="var(--ext)"/>
-      <text class="nl" x="280" y="40" text-anchor="middle">grocery</text>
-      <text class="nl-sub" x="280" y="112" text-anchor="middle">grocery.agent</text>
-
-      <line class="edge flowdash" x1="298" y1="75" x2="470" y2="75"/>
-      <circle cx="500" cy="75" r="17" fill="var(--human)"/>
-      <text class="nl" x="500" y="40" text-anchor="middle">you</text>
-      <text class="nl-sub" x="500" y="112" text-anchor="middle">confirm?</text>
-
-      <line class="edge" style="stroke:var(--ok)" x1="520" y1="75" x2="690" y2="75"/>
-      <text class="nl" x="712" y="71" text-anchor="start" style="fill:var(--ok)">✓ order placed</text>
-      <text class="nl-sub" x="712" y="87" text-anchor="start">only after you say yes</text>
-    </svg>
-    </figure>
-    <span class="msg">fridge → grocery.agent: "milk low" · grocery.agent → you: "add 2× milk?"</span>
-  </div>
+  <p class="note">No app to open. No alarm to reset. The agent and your devices arranged it between themselves — privately, in your home — because you gave the traffic agent permission to do exactly this and nothing more.</p>
 </section>
 
 <!-- 5. THE APPROACH -->
@@ -515,7 +470,6 @@
 </section>
 
 <footer class="wrap">
-  <div class="mono">taulant.arc · gezim.arc</div>
   <div style="margin-top:8px">Working explainer — color encodes participant type. Annotate and iterate.</div>
 </footer>
 
