@@ -189,7 +189,7 @@
   <p class="lede">You're surrounded by connected things — coffee machine, washer, fridge, lights, sensors. Each one carries an ARC identity and joins <b style="color:var(--ink)">your</b> network through an ARC router at home. Then you add apps and agents — weather, news, energy prices — and the whole thing becomes one ecosystem of <b style="color:var(--ink)">devices, apps and agents</b> that mostly runs locally. That local-first design is what makes it private and safe. AI-augmented life that lives in your house, not on someone's server.</p>
 
   <div class="magic">
-    <p class="q">A traffic agent watching your commute messages the home directly: <em>"heavy traffic on your route — waking you 30 min early. Blinds opening, coffee brewing."</em></p>
+    <p class="q">A traffic agent keeps an eye on your commute. One morning it tells your home: <em>"heavy traffic ahead — waking you 30 min early. Blinds opening, coffee brewing."</em></p>
     <p class="meta">no vendor cloud · no hand-wired automation · everything runs in your home · you stay in control of what each agent can touch</p>
   </div>
 </section>
@@ -197,7 +197,7 @@
 <!-- 2. THE HOME NETWORK -->
 <section class="wrap">
   <div class="section-head"><span class="num">02</span><h2>Your home as a local network</h2></div>
-  <p class="lede">The router is the heart of the home — it gives every device and agent its own private address under <span class="mono" style="color:var(--root)">taulant.arc</span>. Your devices and agents live inside the home. Agents that need the internet reach in only through permissions you grant and can revoke — they never sit in the middle.</p>
+  <p class="lede">To take part, every device and agent joins your home network through the ARC hub, which gives each one its own private address under <span class="mono" style="color:var(--root)">taulant.arc</span> and helps them discover one another. From there they talk <b style="color:var(--ink)">directly, peer to peer</b> — the hub introduces and relays, but never owns the conversation. Agents that need the internet reach in only through permissions you grant and can revoke.</p>
 
   <div class="panel">
   <figure>
@@ -326,8 +326,8 @@
     <text class="nl-sub" x="480" y="150">encrypted, device to device</text>
 
     <rect x="60" y="176" width="380" height="56" rx="9" fill="var(--panel)" stroke="var(--line)"/>
-    <text class="nt" x="80" y="200">Connection</text>
-    <text class="nl-sub" x="80" y="218">devices find each other directly</text>
+    <text class="nt" x="80" y="200">Discovery &amp; connection</text>
+    <text class="nl-sub" x="80" y="218">the hub helps devices find each other</text>
 
     <rect x="460" y="176" width="360" height="56" rx="9" fill="var(--panel)" stroke="var(--line)"/>
     <text class="nt" x="480" y="200">Storage</text>
